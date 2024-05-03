@@ -16,7 +16,7 @@ app.delete('/logout',(req,res)=>{
     res.sendStatus(204)
 })
 app.post('/login',(req,res)=>{
-    const username=req.username
+    const username=req.body.username
     const user={name:username}
     const accessToken=getAccessToken(user)
     const refreshToken=jwt.sign(user,process.env.REFRESH_TOKEN_SECRET)
